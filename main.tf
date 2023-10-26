@@ -27,9 +27,9 @@ module cluster_on {
 }
 
 resource aws_cloudwatch_event_rule cluster_on {
-    name                = var.turn_on_schedule.name
-    description         = var.turn_on_schedule.description
-    schedule_expression = var.turn_on_schedule.expression
+    name                = "${var.name_prefix}-turn-on"
+    description         = "Turns ON cluster: ${var.name_prefix}"
+    schedule_expression = var.turn_on_schedule
 }
 
 resource aws_cloudwatch_event_target cluster_on {
@@ -72,9 +72,9 @@ module cluster_off {
 }
 
 resource aws_cloudwatch_event_rule cluster_off {
-    name                = var.turn_off_schedule.name
-    description         = var.turn_off_schedule.description
-    schedule_expression = var.turn_off_schedule.expression
+    name                = "${var.name_prefix}-turn-off"
+    description         = "Turns OFF cluster: ${var.name_prefix}"
+    schedule_expression = var.turn_off_schedule
 }
 
 resource aws_cloudwatch_event_target cluster_off {
