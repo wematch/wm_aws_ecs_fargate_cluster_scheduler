@@ -9,10 +9,10 @@ module cluster_on {
 
     function_name                       = "${var.name_prefix}-Switch-Cluster-ON"
     description                         = "Switch cluster ON: ${var.name_prefix}"
-    handler                             = "lambda.lambda_handler"
+    handler                             = "lambda_on.lambda_handler"
     runtime                             = "python3.9"
-    timeout                             = 30
-    memory_size                         = 256
+    timeout                             = 60
+    memory_size                         = 512
     maximum_retry_attempts              = 3
     attach_policy                       = true
     create_package                      = false
@@ -54,10 +54,10 @@ module cluster_off {
 
     function_name                       = "${var.name_prefix}-Switch-Cluster-OFF"
     description                         = "Switch cluster OFF: ${var.name_prefix}"
-    handler                             = "lambda.lambda_handler"
+    handler                             = "lambda_off.lambda_handler"
     runtime                             = "python3.9"
-    timeout                             = 30
-    memory_size                         = 256
+    timeout                             = 60
+    memory_size                         = 512
     maximum_retry_attempts              = 3
     attach_policy                       = true
     create_package                      = false
